@@ -1,0 +1,38 @@
+<div class="container mt-3">
+    <form [formGroup]="userForm" (ngSubmit)="submitUser()">
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Student Name</label>
+                <input [ngClass]="{
+                    'has-error':userForm.controls.name.touched && userForm.controls.name.invalid,
+                    'has-success' : userForm.controls.name.touched && userForm.controls.name.valid
+                }" type="text" formControlName="name" class="form-control">
+                <span style="color:red;"
+                *ngIf="userForm.controls.name.touched && userForm.controls.name.invalid">Please Enter username</span>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Student Email</label>
+                <input [ngClass]="{
+                    'has-error':userForm.controls.email.touched && userForm.controls.email.invalid,
+                    'has-success' : userForm.controls.email.touched && userForm.controls.email.valid
+                }" type="email" formControlName="email" class="form-control">
+                <span style="color:red;"
+                 *ngIf="userForm.controls.email.touched && userForm.controls.email.invalid">Enter Valid Email</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Phone Number</label>
+                <input [ngClass]="{
+                    'has-error':userForm.controls.phone.touched && userForm.controls.phone.invalid,
+                    'has-success' : userForm.controls.phone.touched && userForm.controls.phone.valid
+                }" type="text" formControlName="phone" class="form-control">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-primary btn-sm">
+            </div>
+        </div>
+    </form>
+</div>

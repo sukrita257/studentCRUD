@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    <form [formGroup]="userForm" (ngSubmit)="submitAttendance()">
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Student ID</label>
+                <input [ngClass]="{
+                    'has-error':userForm.controls.id.touched && userForm.controls.id.invalid,
+                    'has-success' : userForm.controls.id.touched && userForm.controls.id.valid
+                }" type="text" formControlName="id" class="form-control" #myInput (input)="onInput(myInput.value)">
+                <span style="color:red;"
+                *ngIf="userForm.controls.id.touched && userForm.controls.id.invalid">Please Enter ID</span>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Date</label>
+                <input [ngClass]="{
+                    'has-error':userForm.controls.date.touched && userForm.controls.date.invalid,
+                    'has-success' : userForm.controls.date.touched && userForm.controls.date.valid
+                }" type="date" formControlName="date" class="form-control">
+                <span style="color:red;"
+                 *ngIf="userForm.controls.date.touched && userForm.controls.date.invalid">Please Enter Date</span>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-primary btn-sm">
+            </div>
+        </div>
+    </form>
+</div>
